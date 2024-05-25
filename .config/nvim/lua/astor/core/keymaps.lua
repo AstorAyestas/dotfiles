@@ -50,6 +50,3 @@ keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split window vertical' })
 keymap.set('n', 'te', ':tabedit', { desc = 'Create a new tab' })
 keymap.set('n', '<tab>', ':tabnext<Return>', { desc = 'Move to the next tab' })
 keymap.set('n', '<s-tab>', ':tabprev<Return>', { desc = 'Move to the previous tab' })
-
--- paste
--- keymap.set('x', '<leader>p', [["_dP]], { desc = '[P]aste without lose the value in the register' })
