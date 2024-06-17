@@ -44,3 +44,5 @@ opt.hlsearch = true
 -- English spell check
 opt.spelllang = 'en_us'
 opt.spell = true
+-- obsidian
+opt.conceallevel = 2

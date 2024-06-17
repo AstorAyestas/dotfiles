@@ -1,4 +1,9 @@
+# homebrew
 export PATH="$PATH:/opt/homebrew/bin/"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+
+# rbenv
 eval "$(rbenv init -)"
 
 # Set the directory we want to store zinit and plugins
@@ -44,8 +49,10 @@ setopt hist_find_no_dups
 
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
-# set up tmuxifier
-export EDITOR='nvim'
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
+
+# set up tmux-windowizer and tmux-sessionizer
+export PATH="$HOME/.local/bin/:$PATH"
+
+# Python alias
+alias python='python3'
 
