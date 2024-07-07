@@ -21,6 +21,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
+zinit light Aloxaf/fzf-tab
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -47,6 +48,9 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# completion styling
+zstyle ':completion:*' menu no
+
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
@@ -56,3 +60,8 @@ export PATH="$HOME/.local/bin/:$PATH"
 # Python alias
 alias python='python3'
 
+# set up node version manager nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

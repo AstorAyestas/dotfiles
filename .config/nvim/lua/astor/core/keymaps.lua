@@ -50,3 +50,6 @@ keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split window vertical' })
 keymap.set('n', 'te', ':tabedit', { desc = 'Create a new tab' })
 keymap.set('n', '<tab>', ':tabnext<Return>', { desc = 'Move to the next tab' })
 keymap.set('n', '<s-tab>', ':tabprev<Return>', { desc = 'Move to the previous tab' })
+
+-- open tmux-sessionizer
+keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
