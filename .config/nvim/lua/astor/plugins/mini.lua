@@ -26,9 +26,6 @@ return {
     vim.keymap.set('n', '<leader>fc', ":lua require('mini.files').open(vim.api.nvim_buf_get_name(0), true)<CR>", { desc = '[F]ile Explorer [C]urrent Buffer' })
     vim.keymap.set('n', '<leader>fe', ":lua require('mini.files').open()<CR>", { desc = '[F]ile [E]xplorer' })
 
-    -- comments
-    require('mini.comment').setup()
-
     -- mini diff
     require('mini.diff').setup {
       view = {

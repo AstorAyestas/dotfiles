@@ -50,6 +50,7 @@ setopt hist_find_no_dups
 
 # completion styling
 zstyle ':completion:*' menu no
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"

@@ -21,7 +21,18 @@ return {
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
-    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    {
+      'echasnovski/mini.icons',
+      enabled = vim.g.have_nerd_font,
+      lazy = true,
+      opts = {},
+      init = function()
+        package.preload['nvim-web-devicons'] = function()
+          require('mini.icons').mock_nvim_web_devicons()
+          return package.loaded['nvim-web-devicons']
+        end
+      end,
+    },
     { 'nvim-telescope/telescope-frecency.nvim' },
     {
       'nvim-telescope/telescope-live-grep-args.nvim',
