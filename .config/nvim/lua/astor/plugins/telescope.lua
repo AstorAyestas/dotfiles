@@ -98,6 +98,7 @@ return {
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension, 'frecency')
     pcall(require('telescope').load_extension, 'live_grep_args')
+    pcall(require('telescope').load_extension, 'refactoring')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -137,5 +138,10 @@ return {
     keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+
+    -- Refactoring selection
+    keymap.set({ 'n', 'x' }, '<leader>rs', function()
+      require('telescope').extensions.refactoring.refactors()
+    end, { desc = '[R]efactoring [S]election' })
   end,
 }
