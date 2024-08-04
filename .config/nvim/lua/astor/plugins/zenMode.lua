@@ -1,5 +1,6 @@
 return {
   'folke/zen-mode.nvim',
+  event = 'VeryLazy',
   opts = {},
   config = function()
     local keymap = vim.keymap

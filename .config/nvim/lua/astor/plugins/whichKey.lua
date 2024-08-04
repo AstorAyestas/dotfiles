@@ -5,13 +5,14 @@ return {
     opts = {},
     add = {
       {
-        { '<leader>c', group = '[C]ode' },
+        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>o', group = '[O]bsidian' },
+        { '<leader>f', group = '[F]ile' },
       },
     },
     keys = {

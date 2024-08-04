@@ -103,27 +103,26 @@ return {
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
     local keymap = vim.keymap
-    keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-    keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-    keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-    keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-    keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-    keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-    keymap.set('n', '<leader>st', '<cmd>TodoTelescope<cr>', { desc = '[S]earch [T]odos' })
-    keymap.set('n', '<leader>sl', '<cmd>Telescope frecency workspace=CWD<cr>', { desc = '[S]earch [L]ast edited files' })
-    keymap.set('n', '<leader>sa', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = '[S]earch Grep by [A]rgs' })
+    keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope [S]earch [H]elp' })
+    keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Telescope [S]earch [K]eymaps' })
+    keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope [S]earch [F]iles' })
+    keymap.set('n', '<leader>ss', builtin.builtin, { desc = 'Telescope [S]earch [S]elect Telescope' })
+    keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Telescope [S]earch current [W]ord' })
+    keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope [S]earch by [G]rep' })
+    keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Telescope [S]earch [D]iagnostics' })
+    keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Telescope [S]earch [R]esume' })
+    keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = 'Telescope [S]earch Recent Files ("." for repeat)' })
+    keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Telescope [ ] Find existing buffers' })
+    keymap.set('n', '<leader>st', '<cmd>TodoTelescope<cr>', { desc = 'Telescope [S]earch [T]odos' })
+    keymap.set('n', '<leader>sl', '<cmd>Telescope frecency workspace=CWD<cr>', { desc = 'Telescope [S]earch [L]ast edited files' })
+    keymap.set('n', '<leader>sa', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = 'Telescope [S]earch Grep by [A]rgs' })
     -- Slightly advanced example of overriding default behavior and theme
     keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
         previewer = false,
       })
-    end, { desc = '[/] Fuzzily search in current buffer' })
+    end, { desc = 'Telescope [/] Fuzzily search in current buffer' })
 
     -- It's also possible to pass additional configuration options.
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
@@ -132,16 +131,16 @@ return {
         grep_open_files = true,
         prompt_title = 'Live Grep in Open Files',
       }
-    end, { desc = '[S]earch [/] in Open Files' })
+    end, { desc = 'Telescope [S]earch [/] in Open Files' })
 
     -- Shortcut for searching your Neovim configuration files
     keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[S]earch [N]eovim files' })
+    end, { desc = 'Telescope [S]earch [N]eovim files' })
 
     -- Refactoring selection
     keymap.set({ 'n', 'x' }, '<leader>rs', function()
       require('telescope').extensions.refactoring.refactors()
-    end, { desc = '[R]efactoring [S]election' })
+    end, { desc = 'Telescope [R]efactoring [S]election' })
   end,
 }

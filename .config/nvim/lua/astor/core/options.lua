@@ -11,7 +11,10 @@ opt.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 opt.showmode = false
 -- Sync clipboard between OS and Neovim.
-opt.clipboard = 'unnamedplus'
+-- Schedule the setting after `UiEnter` because it can increase startup-time.
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
 -- Enable break indent
 opt.breakindent = true
 -- Save undo history

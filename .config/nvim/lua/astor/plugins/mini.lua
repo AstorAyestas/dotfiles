@@ -20,11 +20,12 @@ return {
     statusline.section_location = function()
       return '%2l:%-2v'
     end
+    local keymap = vim.keymap
 
     -- File Explorer
     require('mini.files').setup()
-    vim.keymap.set('n', '<leader>fc', ":lua require('mini.files').open(vim.api.nvim_buf_get_name(0), true)<CR>", { desc = '[F]ile Explorer [C]urrent Buffer' })
-    vim.keymap.set('n', '<leader>fe', ":lua require('mini.files').open()<CR>", { desc = '[F]ile [E]xplorer' })
+    keymap.set('n', '<leader>fc', ":lua require('mini.files').open(vim.api.nvim_buf_get_name(0), true)<CR>", { desc = '[F]ile Explorer [C]urrent Buffer' })
+    keymap.set('n', '<leader>fe', ":lua require('mini.files').open()<CR>", { desc = '[F]ile [E]xplorer' })
 
     -- mini diff
     require('mini.diff').setup {
@@ -35,14 +36,14 @@ return {
     }
 
     local to = '<Cmd>lua MiniDiff.toggle_overlay()<CR>'
-    vim.keymap.set('n', '<leader>to', to, { desc = '[T]oggle [O]verlay' })
+    keymap.set('n', '<leader>to', to, { desc = 'Git [T]oggle [O]verlay' })
 
     -- mini git
     require('mini.git').setup()
 
     -- set mapping to interactive Git history navigation
     local sac = '<Cmd>lua MiniGit.show_at_cursor()<CR>'
-    vim.keymap.set({ 'n', 'x' }, '<Leader>gs', sac, { desc = '[G]it [S]how at cursor' })
+    keymap.set({ 'n', 'x' }, '<Leader>sc', sac, { desc = 'Git [S]how at [C]ursor' })
 
     -- Set folding in Git related file types
     local diff_folds = 'foldmethod=expr foldexpr=v:lua.MiniGit.diff_foldexpr() foldlevel=0'

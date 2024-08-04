@@ -20,10 +20,10 @@ keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnosti
 keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
-keymap.set('n', '<left>', '<cmd>echo "Use h to move CR>')
-keymap.set('n', '<right>', '<cmd>echo "Use l to move CR>')
-keymap.set('n', '<up>', '<cmd>echo "Use k to move CR>')
-keymap.set('n', '<down>', '<cmd>echo "Use j to move CR>')
+keymap.set('n', '<left>', '<cmd>echo "Use h to move"<CR>')
+keymap.set('n', '<right>', '<cmd>echo "Use l to move"<CR>')
+keymap.set('n', '<up>', '<cmd>echo "Use k to move"<CR>')
+keymap.set('n', '<down>', '<cmd>echo "Use j to move"<CR>')
 
 -- See `:help wincmd` for a list of all window commands
 keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -49,4 +49,7 @@ keymap.set('n', '<tab>', ':tabnext<Return>', { desc = 'Move to the next tab' })
 keymap.set('n', '<s-tab>', ':tabprev<Return>', { desc = 'Move to the previous tab' })
 
 -- open tmux-sessionizer
-keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
+keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'Open tmux session fzf picker' })
+
+-- remap for better paste
+keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without set the register' })
