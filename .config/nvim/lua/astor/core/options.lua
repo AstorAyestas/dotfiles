@@ -6,8 +6,6 @@ local opt = vim.opt
 opt.number = true
 -- Make relative number
 opt.relativenumber = true
--- Enable mouse mode
-opt.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 opt.showmode = false
 -- Sync clipboard between OS and Neovim.

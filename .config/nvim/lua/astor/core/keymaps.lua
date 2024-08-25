@@ -48,8 +48,5 @@ keymap.set('n', 'te', ':tabedit', { desc = 'Create a new tab' })
 keymap.set('n', '<tab>', ':tabnext<Return>', { desc = 'Move to the next tab' })
 keymap.set('n', '<s-tab>', ':tabprev<Return>', { desc = 'Move to the previous tab' })
 
--- open tmux-sessionizer
-keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'Open tmux session fzf picker' })
-
 -- remap for better paste
 keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without set the register' })
