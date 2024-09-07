@@ -20,6 +20,7 @@ return {
       'css',
       'json',
       'dockerfile',
+      'ruby',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,

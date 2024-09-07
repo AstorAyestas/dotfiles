@@ -12,6 +12,10 @@ Ensure you have the following installed on your system
 brew install git
 ```
 
+### cheatsh
+```
+curl -s https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh && sudo chmod +x /usr/local/bin/cht.sh
+```
 ### Stow
 
 ```

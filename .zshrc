@@ -1,11 +1,3 @@
-# homebrew
-export PATH="$PATH:/opt/homebrew/bin/"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-
-# rbenv
-eval "$(rbenv init -)"
-
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -31,7 +23,6 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
 fi
 
 # Keybindings
-# bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
@@ -55,14 +46,14 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
-# set up tmux-windowizer and tmux-sessionizer
-export PATH="$HOME/.local/bin/:$PATH"
+# rbenv
+eval "$(rbenv init -)"
 
-# Python alias
-alias python='python3'
+# pyenv
+eval "$(pyenv init -)"
 
-# set up node version manager nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Aliases
+[ -f "$HOME/.aliases.zsh" ] && source "$HOME/.aliases.zsh"
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Work
+[ -f "$HOME/.work.zsh" ] && source "$HOME/.work.zsh"

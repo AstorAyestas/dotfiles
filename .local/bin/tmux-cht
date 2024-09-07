@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+languages=`echo "bash css html javascript lua nodejs ruby typescript" | tr ' ' '\n'`
+commands=`echo "awk cat chmod chown cp docker docker-compose find git git-commit git-merge git-rebase git-status git-worktree grep head jq kill less ls lsof make man mv ps rename rg rm sed ssh stow tail tar tldr tr xargs" | tr ' ' '\n'`
+
+selected=`printf "$languages\n$commands" | fzf --height=50 --reverse --prompt="Get info for a language or a command: "`
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+read -p "Enter Query: " query
+
+if echo "$languages" | grep -qs "^$selected$"; then
+	query=`echo $query | tr ' ' '+'`
+	echo $query
+	tmux neww bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query & while [ : ]; do sleep 1; done"
+else
+	tmux neww bash -c "echo \"curl -s cht.sh/$selected~$query/\" & curl cht.sh/$selected~$query & while [ : ]; do sleep 1; done"
+fi
+
