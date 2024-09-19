@@ -14,6 +14,7 @@
 | `Postman`            | <kbd>⌥</kbd> + <kbd>p</kbd> |
 | `Safari`             | <kbd>⌥</kbd> + <kbd>s</kbd> |
 | `Visual Studio Code` | <kbd>⌥</kbd> + <kbd>v</kbd> |
+| `Yaak`               | <kbd>⌥</kbd> + <kbd>y</kbd> |
 
 ## Hotkeys to Window Management
 

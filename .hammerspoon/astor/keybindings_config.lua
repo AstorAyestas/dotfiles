@@ -14,6 +14,7 @@ module.apps = {
   { key = 'p', prefix = { 'Option' }, bundleId = 'com.postmanlabs.mac' },
   { key = 's', prefix = { 'Option' }, bundleId = 'com.apple.Safari' },
   { key = 'v', prefix = { 'Option' }, bundleId = 'com.microsoft.VSCode' },
+  { key = 'y', prefix = { 'Option' }, bundleId = 'app.yaak.desktop' },
 }
 
 module.window_resize = {

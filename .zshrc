@@ -25,6 +25,8 @@ fi
 # Keybindings
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+# vim mode
+bindkey -v
 
 # History
 HISTSIZE=5000
