@@ -39,14 +39,7 @@ keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move up half screen' })
 keymap.set('n', 'n', 'nzzzv', { desc = 'Move to next search result' })
 keymap.set('n', 'N', 'Nzzzv', { desc = 'Move to previous search result' })
 
--- split window
-keymap.set('n', 'ss', ':split<Return>', { desc = 'Split window horizonal' })
-keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split window vertical' })
-
--- handle tabs
-keymap.set('n', 'te', ':tabedit', { desc = 'Create a new tab' })
-keymap.set('n', '<tab>', ':tabnext<Return>', { desc = 'Move to the next tab' })
-keymap.set('n', '<s-tab>', ':tabprev<Return>', { desc = 'Move to the previous tab' })
-
 -- remap for better paste
-keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without set the register' })
+keymap.set('v', 'p', '"_dP', { desc = 'Paste without set the register' })
+-- delete single character without copying into register
+keymap.set('n', 'x', '"_x', { desc = 'Delete character without set the register' })

@@ -2,6 +2,9 @@ return {
   -- Collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
   config = function()
+    -- Autopairs
+    require('mini.pairs').setup()
+
     -- Better Around/Inside text objects
     require('mini.ai').setup { n_lines = 500 }
 

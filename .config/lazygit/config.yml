@@ -1,0 +1,7 @@
+customCommands:
+  - key: "C"
+    command: "git-conventional-commit"
+    description: "Git Conventional Commits"
+    context: "files"
+    loadingText: "Open the script gcm"
+    subprocess: true
