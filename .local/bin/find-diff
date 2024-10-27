@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Ensure fd and fzf are installed
+if ! command -v fd &>/dev/null || ! command -v fzf &>/dev/null; then
+  echo "Error: 'fd' and 'fzf' are required but not installed."
+  exit 1
+fi
+
+fd_command() {
+  fd . --max-depth=4 --prune ~/work ~/personal --type f 2>/dev/null
+}
+
+file1=$( fd_command | fzf --height=50 --reverse --prompt="Select first file: ")
+
+if [ -z "$file1" ]; then
+  echo "No first file selected. Exiting."
+  exit 1
+fi
+
+file2=$( fd_command | fzf --height=50 --reverse --prompt="Select second file: ")
+
+if [ -z "$file2" ]; then
+  echo "No second file selected. Exiting."
+  exit 1
+fi
+
+echo "Comparing:"
+echo "1. $file1"
+echo "2. $file2"
+delta --line-numbers --side-by-side "$file1" "$file2"

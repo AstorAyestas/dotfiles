@@ -133,11 +133,6 @@ return {
       }
     end, { desc = 'Telescope [S]earch [/] in Open Files' })
 
-    -- Shortcut for searching your Neovim configuration files
-    keymap.set('n', '<leader>sn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = 'Telescope [S]earch [N]eovim files' })
-
     -- Refactoring selection
     keymap.set({ 'n', 'x' }, '<leader>rs', function()
       require('telescope').extensions.refactoring.refactors()

@@ -201,7 +201,7 @@ return {
           linters = { 'standard' },
         },
       },
-
+      -- harper_ls = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
