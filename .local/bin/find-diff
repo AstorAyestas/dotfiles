@@ -7,7 +7,7 @@ if ! command -v fd &>/dev/null || ! command -v fzf &>/dev/null; then
 fi
 
 fd_command() {
-  fd . --max-depth=4 --prune ~/work ~/personal --type f 2>/dev/null
+  fd . --max-depth=8 --prune ~/work ~/personal --type f 2>/dev/null
 }
 
 file1=$( fd_command | fzf --height=50 --reverse --prompt="Select first file: ")

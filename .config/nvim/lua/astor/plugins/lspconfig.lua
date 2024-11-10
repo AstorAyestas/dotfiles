@@ -195,12 +195,12 @@ return {
       dockerls = {},
       docker_compose_language_service = {},
       jsonls = {},
-      ruby_lsp = {
-        init_options = {
-          formatter = 'standard',
-          linters = { 'standard' },
-        },
-      },
+      -- ruby_lsp = {
+      --   init_options = {
+      --     formatter = 'standard',
+      --     linters = { 'standard' },
+      --   },
+      -- },
       -- harper_ls = {},
       lua_ls = {
         -- cmd = {...},
