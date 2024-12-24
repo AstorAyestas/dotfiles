@@ -1,0 +1,8 @@
+# Don't let ripgrep display really long lines to the terminal
+--max-columns=150
+
+# Search hidden files / directories (e.g. dotfiles) by default
+--hidden
+
+# Using glob patterns to include/exclude files or folders
+--glob=!.git/*
