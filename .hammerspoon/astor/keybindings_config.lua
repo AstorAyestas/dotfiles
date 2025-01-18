@@ -9,7 +9,7 @@ module.apps = {
   { key = 'd', prefix = { 'Option' }, bundleId = 'org.jkiss.dbeaver.core.product' },
   { key = 'e', prefix = { 'Option' }, bundleId = 'com.docker.docker' },
   { key = 'g', prefix = { 'Option' }, bundleId = 'com.google.Chrome' },
-  { key = 'i', prefix = { 'Option' }, bundleId = 'com.github.wez.wezterm' },
+  { key = 'i', prefix = { 'Option' }, bundleId = 'com.mitchellh.ghostty' },
   { key = 'o', prefix = { 'Option' }, bundleId = 'md.obsidian' },
   { key = 'p', prefix = { 'Option' }, bundleId = 'com.postmanlabs.mac' },
   { key = 'v', prefix = { 'Option' }, bundleId = 'com.microsoft.VSCode' },

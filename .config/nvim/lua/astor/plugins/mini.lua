@@ -74,8 +74,8 @@ return {
     require('mini.extra').setup()
     -- mini pick
     local win_config = function()
-      local height = math.floor(0.618 * vim.o.lines)
-      local width = math.floor(0.618 * vim.o.columns)
+      local height = math.floor(0.8 * vim.o.lines)
+      local width = math.floor(0.8 * vim.o.columns)
       return {
         anchor = 'NW',
         height = height,
@@ -85,11 +85,14 @@ return {
       }
     end
 
-    require('mini.pick').setup {
+    local pick = require 'mini.pick'
+    pick.setup {
       window = {
         config = win_config,
       },
     }
+
+    vim.ui.select = pick.ui_select
 
     keymap.set('n', '<leader>sh', function()
       MiniPick.builtin.help()
@@ -102,6 +105,14 @@ return {
     keymap.set('n', '<leader>sf', function()
       MiniPick.builtin.files { tool = 'git' }
     end, { desc = '[S]earch git [F]iles' })
+
+    keymap.set('n', '<leader>gm', function()
+      MiniExtra.pickers.git_files { scope = 'modified' }
+    end, { desc = 'Search [G]it [M]odified files ]' })
+
+    keymap.set('n', '<leader>gt', function()
+      MiniExtra.pickers.git_files { scope = 'tracked' }
+    end, { desc = 'Search [G]it [T]racked files' })
 
     keymap.set('n', '<leader>sk', function()
       MiniExtra.pickers.keymaps()

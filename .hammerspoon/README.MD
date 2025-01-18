@@ -9,7 +9,7 @@
 | `DBeaver`            | <kbd>⌥</kbd> + <kbd>d</kbd> |
 | `Docker`             | <kbd>⌥</kbd> + <kbd>e</kbd> |
 | `Google Chrome`      | <kbd>⌥</kbd> + <kbd>g</kbd> |
-| `WezTerm`            | <kbd>⌥</kbd> + <kbd>i</kbd> |
+| `Ghostty`            | <kbd>⌥</kbd> + <kbd>i</kbd> |
 | `Obsidian`           | <kbd>⌥</kbd> + <kbd>o</kbd> |
 | `Postman`            | <kbd>⌥</kbd> + <kbd>p</kbd> |
 | `Visual Studio Code` | <kbd>⌥</kbd> + <kbd>v</kbd> |
