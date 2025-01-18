@@ -22,12 +22,11 @@ return {
       opts = {
         library = {
           -- Load luvit types when the `vim.uv` word is found
-          { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
         },
       },
     },
-    { 'Bilal2453/luvit-meta', lazy = true },
-    { 'echasnovski/mini.nvim' },
+    { 'folke/snacks.nvim' },
   },
   config = function()
     -- Brief aside: **What is LSP?**
@@ -78,7 +77,9 @@ return {
         map('gd', ':lua vim.lsp.buf.definition()<CR>', '[G]oto [D]efinition')
 
         -- Find references for the word under your cursor.
-        map('gr', ":lua require('mini.extra').pickers.lsp { scope = 'references' }<CR>", '[G]oto [R]eferences')
+        map('gr', function()
+          Snacks.picker.lsp_references()
+        end, '[G]oto [R]eferences')
 
         -- Jump to the implementation of the word under your cursor.
         --  Useful when your language has ways of declaring types without an actual implementation.
@@ -91,11 +92,9 @@ return {
 
         -- Fuzzy find all the symbols in your current document.
         --  Symbols are things like variables, functions, types, etc.
-        map('<leader>ds', ":lua require('mini.extra').pickers.lsp { scope = 'document_symbol' }<CR>", '[D]ocument [S]ymbols')
-
-        -- Fuzzy find all the symbols in your current workspace.
-        --  Similar to document symbols, except searches over your entire project.
-        map('<leader>ws', ":lua require('mini.extra').pickers.lsp { scope = 'workspace_symbol' }<CR>", '[W]orkspace [S]ymbols')
+        map('<leader>ds', function()
+          Snacks.picker.lsp_symbols()
+        end, '[D]ocument [S]ymbols')
 
         -- Rename the variable under your cursor.
         --  Most Language Servers support renaming across files, etc.
@@ -104,7 +103,6 @@ return {
         -- Execute a code action, usually your cursor needs to be on top of an error
         -- or a suggestion from your LSP for this to activate.
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-        -- TODO move code action output to nvim pick
 
         -- WARN: This is not Goto Definition, this is Goto Declaration.
         --  For example, in C this would take you to the header.
