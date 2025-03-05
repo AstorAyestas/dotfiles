@@ -34,6 +34,8 @@ keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window'
 -- center the view of the screen when moving up and down
 keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move down half screen' })
 keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move up half screen' })
+keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'Move down screen' })
+keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'Move up screen' })
 
 -- center the view during search
 keymap.set('n', 'n', 'nzzzv', { desc = 'Move to next search result' })
@@ -43,3 +45,8 @@ keymap.set('n', 'N', 'Nzzzv', { desc = 'Move to previous search result' })
 keymap.set('v', 'p', '"_dP', { desc = 'Paste without set the register' })
 -- delete single character without copying into register
 keymap.set('n', 'x', '"_x', { desc = 'Delete character without set the register' })
+
+-- tabs
+keymap.set('n', 'te', ':tabedit', { desc = 'New [T]ab to [E]dit' })
+keymap.set('n', '<tab>', ':tabnext<Return>', { desc = 'Next Tab' })
+keymap.set('n', '<s-tab>', ':tabprev<Return>', { desc = 'Previous Tab' })

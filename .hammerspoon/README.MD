@@ -6,7 +6,7 @@
 | -------------------- | :-------------------------: |
 | `Brave`              | <kbd>⌥</kbd> + <kbd>b</kbd> |
 | `Slack`              | <kbd>⌥</kbd> + <kbd>s</kbd> |
-| `DBeaver`            | <kbd>⌥</kbd> + <kbd>d</kbd> |
+| `DBeaver`            | <kbd>⌥</kbd> + <kbd>u</kbd> |
 | `Docker`             | <kbd>⌥</kbd> + <kbd>e</kbd> |
 | `Google Chrome`      | <kbd>⌥</kbd> + <kbd>g</kbd> |
 | `Ghostty`            | <kbd>⌥</kbd> + <kbd>i</kbd> |

@@ -5,13 +5,19 @@ return {
   ---@type snacks.Config
   opts = {
     git = { enabled = true },
+    gitbrowse = { enabled = true },
+    bigfile = { enabled = true },
     picker = {
       enabled = true,
-      formatters = {
-        file = {
-          filename_first = true,
-        },
-      },
+    },
+    lazygit = {
+      enabled = true,
+    },
+    bufdelete = {
+      enabled = true,
+    },
+    scratch = {
+      enabled = true,
     },
   },
   keys = {
@@ -61,14 +67,14 @@ return {
     {
       '<leader>sr',
       function()
-        Snacks.picker.resume()
+        Snacks.picker.resume { filter = { cwd = true } }
       end,
       desc = '[S]earch [R]esume',
     },
     {
       '<leader>s.',
       function()
-        Snacks.picker.recent()
+        Snacks.picker.recent { filter = { cwd = true } }
       end,
       desc = '[S]earch Recent files ("." for repeat)',
     },
@@ -90,7 +96,7 @@ return {
     {
       '<leader>sl',
       function()
-        Snacks.picker.smart()
+        Snacks.picker.smart { filter = { cwd = true } }
       end,
       desc = '[S]earch [L]ast files',
     },
@@ -109,11 +115,53 @@ return {
       desc = 'Search [G]it [S]tatus',
     },
     {
+      '<leader>gS',
+      function()
+        Snacks.picker.git_branches()
+      end,
+      desc = '[G]it [S]wich branch',
+    },
+    {
       '<leader>gb',
       function()
         Snacks.git.blame_line()
       end,
       desc = '[G]it [B]lame Line',
+    },
+    {
+      '<leader>go',
+      function()
+        Snacks.gitbrowse()
+      end,
+      desc = '[G]it [O]pen in Browser',
+    },
+    {
+      '<leader>lg',
+      function()
+        Snacks.lazygit.open()
+      end,
+      desc = 'Open [L]azy [G]it',
+    },
+    {
+      '<leader>bd',
+      function()
+        Snacks.bufdelete()
+      end,
+      desc = '[B]uffer [D]eletion',
+    },
+    {
+      '<leader>sp',
+      function()
+        Snacks.picker.projects()
+      end,
+      desc = '[S]earch [P]rojects',
+    },
+    {
+      '<leader>td',
+      function()
+        Snacks.scratch { icon = ' ', name = 'Todo', ft = 'markdown', file = '~/vaults/work/TODO.md' }
+      end,
+      desc = '[T]o[D]o List',
     },
   },
 }

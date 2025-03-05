@@ -15,6 +15,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 
+# ssh-agent
+zinit snippet OMZP::ssh-agent/ssh-agent.plugin.zsh
+
 # Load completions
 autoload -Uz compinit && compinit
 
@@ -44,6 +47,9 @@ setopt hist_find_no_dups
 # completion styling
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+
+# setup ssh-key to use the keychain
+zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
 
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
