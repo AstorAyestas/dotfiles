@@ -5,6 +5,12 @@ return {
     -- icons
     require('mini.icons').setup()
 
+    -- tabline
+    -- require('mini.tabline').setup {
+    --   set_vim_settings = true,
+    --   tabpage_section = 'none',
+    -- }
+
     -- Autopairs
     require('mini.pairs').setup {
       modes = { insert = true, command = true, terminal = false },

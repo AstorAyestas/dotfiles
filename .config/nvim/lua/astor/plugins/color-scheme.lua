@@ -8,6 +8,7 @@ return {
     end,
     integrations = {
       snacks = true,
+      blink_cmp = true,
     },
   },
 }

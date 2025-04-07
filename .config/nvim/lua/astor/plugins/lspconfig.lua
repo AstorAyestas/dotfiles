@@ -9,8 +9,6 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     { 'j-hui/fidget.nvim', opts = {} },
-    -- Allows extra capabilities provided by nvim-cmp
-    'hrsh7th/cmp-nvim-lsp',
 
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -71,39 +69,31 @@ return {
         -- Jump to the definition of the word under your cursor.
         --  This is where a variable was first declared, or where a function is defined, etc.
         --  To jump back, press <C-t>.
-        map('gd', ':lua vim.lsp.buf.definition()<CR>', '[G]oto [D]efinition')
+        map('grd', function()
+          Snacks.picker.lsp_definitions()
+        end, '[G]oto [D]efinition')
 
         -- Find references for the word under your cursor.
-        map('gr', function()
+        map('grr', function()
           Snacks.picker.lsp_references()
         end, '[G]oto [R]eferences')
 
         -- Jump to the implementation of the word under your cursor.
         --  Useful when your language has ways of declaring types without an actual implementation.
-        map('gI', ':lua vim.lsp.buf.implementation()<CR>', '[G]oto [I]mplementation')
+        map('gri', Snacks.picker.lsp_implementations, '[G]oto [I]mplementation')
 
-        -- Jump to the type of the word under your cursor.
-        --  Useful when you're not sure what type a variable is and you want to see
         --  the definition of its *type*, not where it was *defined*.
-        map('<leader>D', ':lua vim.lsp.buf.type_definition()<CR>', 'Type [D]efinition')
+        map('<leader>grt', Snacks.picker.lsp_type_definitions, '[G]oto [T]ype Definition')
 
         -- Fuzzy find all the symbols in your current document.
         --  Symbols are things like variables, functions, types, etc.
-        map('<leader>ds', function()
+        map('<leader>gO', function()
           Snacks.picker.lsp_symbols()
         end, '[D]ocument [S]ymbols')
 
-        -- Rename the variable under your cursor.
-        --  Most Language Servers support renaming across files, etc.
-        map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-        -- Execute a code action, usually your cursor needs to be on top of an error
-        -- or a suggestion from your LSP for this to activate.
-        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-
         -- WARN: This is not Goto Definition, this is Goto Declaration.
         --  For example, in C this would take you to the header.
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
         ---@param client vim.lsp.Client
@@ -159,10 +149,9 @@ return {
 
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
-    --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-    --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
+    --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
+    capabilities = require('blink.cmp').get_lsp_capabilities()
     -- Typescript organizeImports
     local function ts_organize_imports()
       local params = {
@@ -202,7 +191,9 @@ return {
       },
       html = {},
       cssls = {},
-      tailwindcss = {},
+      tailwindcss = {
+        filetypes_exclude = { 'markdown' },
+      },
       dockerls = {},
       docker_compose_language_service = {},
       jsonls = {},
@@ -212,7 +203,18 @@ return {
       --     linters = { 'standard' },
       --   },
       -- },
-      -- harper_ls = {},
+      harper_ls = {
+        enabled = true,
+        filetypes = { 'markdown' },
+        settings = {
+          ['harper-ls'] = {
+            isolateEnglish = true,
+            markdown = {
+              IgnoreLinkTitle = true,
+            },
+          },
+        },
+      },
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -227,6 +229,7 @@ return {
           },
         },
       },
+      typos_lsp = {},
     }
 
     -- Ensure the servers and tools above are installed

@@ -9,6 +9,15 @@ return {
     bigfile = { enabled = true },
     picker = {
       enabled = true,
+      marks = {
+        transform = function(item)
+          if item.label and item.label:match '^[A-I]$' and item then
+            item.label = '' .. string.byte(item.label) - string.byte 'A' + 1 .. ''
+            return item
+          end
+          return false
+        end,
+      },
     },
     lazygit = {
       enabled = true,
