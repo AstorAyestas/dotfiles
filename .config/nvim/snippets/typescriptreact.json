@@ -1,0 +1,15 @@
+{
+  "rusec": {
+    "body": "const ${1:} = useCallback(() => {${2:}}, []);",
+    "prefix": "rusec"
+  },
+  "rusem": {
+    "body": ["const ${1:} = useMemo(() => {", "", "  ${2:}", "}, []);"],
+    "prefix": "rusem"
+  },
+  "rusee": {
+    "body": ["useEffect(() => {", "  ${1:}", "  return () => {};", "}, []);"],
+    "prefix": "rusee"
+  }
+}
+

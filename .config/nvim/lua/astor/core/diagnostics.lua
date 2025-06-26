@@ -18,4 +18,6 @@ vim.diagnostic.config {
       return diagnostic_message[diagnostic.severity]
     end,
   },
+  -- Display multi line diagnostics as virtual lines
+  -- virtual_lines = true,
 }

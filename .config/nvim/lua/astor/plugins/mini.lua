@@ -63,5 +63,13 @@ return {
 
     local to = '<Cmd>lua MiniDiff.toggle_overlay()<CR>'
     keymap.set('n', '<leader>to', to, { desc = 'Git [T]oggle [O]verlay' })
+
+    local hipatterns = require 'mini.hipatterns'
+    hipatterns.setup {
+      highlighters = {
+        -- Highlight hex color strings (`#rrggbb`) using that color
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+      },
+    }
   end,
 }

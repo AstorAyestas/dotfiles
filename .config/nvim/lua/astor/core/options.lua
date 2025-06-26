@@ -1,6 +1,6 @@
 -- Set Nerd Font
 vim.g.have_nerd_font = true
-local opt = vim.opt
+local opt = vim.o
 
 -- Make line numbers default
 opt.number = true
@@ -11,7 +11,7 @@ opt.showmode = false
 -- Sync clipboard between OS and Neovim.
 -- Schedule the setting after `UiEnter` because it can increase startup-time.
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+  opt.clipboard = 'unnamedplus'
 end)
 -- Enable break indent
 opt.breakindent = true
@@ -31,8 +31,13 @@ opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+--
+--  Notice listchars is set using `vim.opt` instead of `vim.o`.
+--  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
+--   See `:help lua-options`
+--   and `:help lua-options-guide`
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!
 opt.inccommand = 'split'
 -- Show which line your cursor is on
@@ -43,3 +48,11 @@ opt.hlsearch = true
 -- English spell check
 opt.spelllang = 'en_us'
 opt.spell = true
+-- winborder
+opt.winborder = 'rounded'
+-- fold
+opt.foldenable = true -- enable fold
+opt.foldlevel = 99 -- start editing with all folds opened
+opt.foldmethod = 'expr' -- use tree-sitter for folding method
+opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+opt.foldmethod = 'manual'

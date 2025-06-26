@@ -1,14 +1,10 @@
 return {
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+    'rose-pine/neovim',
+    name = 'rose-pine-moon',
     priority = 1000,
     config = function()
-      vim.cmd [[ colorscheme catppuccin-mocha]]
+      vim.cmd 'colorscheme rose-pine'
     end,
-    integrations = {
-      snacks = true,
-      blink_cmp = true,
-    },
   },
 }

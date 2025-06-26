@@ -1,4 +1,4 @@
-for i = 1, 9 do
+for i = 1, 4 do
   local mark_char = string.char(64 + i) -- A=65, B=66, etc.
   vim.keymap.set('n', '<leader>' .. i, function()
     local mark_pos = vim.api.nvim_get_mark(mark_char, {})
@@ -15,7 +15,7 @@ end
 
 -- Delete mark from current buffer
 vim.keymap.set('n', '<leader>bd', function()
-  for i = 1, 9 do
+  for i = 1, 4 do
     local mark_char = string.char(64 + i)
     local mark_pos = vim.api.nvim_get_mark(mark_char, {})
 
