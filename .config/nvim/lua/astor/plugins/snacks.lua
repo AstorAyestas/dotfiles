@@ -18,6 +18,35 @@ return {
           return false
         end,
       },
+      sources = {
+        projects = {
+          confirm = function(picker, item)
+            picker:close()
+            -- Check if the project is already open by checking the cwd of each tab
+            if item and item.file then
+              local tabpages = vim.api.nvim_list_tabpages()
+              for _, tabpage in ipairs(tabpages) do
+                local tab_cwd = vim.fn.getcwd(-1, tabpage)
+                if tab_cwd == item.file then
+                  -- Change to the tab
+                  vim.api.nvim_set_current_tabpage(tabpage)
+                  return
+                end
+              end
+              -- If there are already opened buffers, open a new tab
+              for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+                if vim.api.nvim_buf_is_loaded(bufnr) and vim.api.nvim_buf_get_name(bufnr) ~= '' then
+                  vim.cmd 'tabnew'
+                  break
+                end
+              end
+              -- Change cwd to the selected project, only for this tab
+              vim.cmd('tcd ' .. vim.fn.fnameescape(item.file))
+              Snacks.picker.smart()
+            end
+          end,
+        },
+      },
     },
     lazygit = {
       enabled = true,
@@ -152,16 +181,18 @@ return {
       desc = 'Open [L]azy [G]it',
     },
     {
-      '<leader>bd',
+      '<leader>db',
       function()
         Snacks.bufdelete()
       end,
-      desc = '[B]uffer [D]eletion',
+      desc = '[D]eletion [B]uffer',
     },
     {
       '<leader>sp',
       function()
-        Snacks.picker.projects()
+        Snacks.picker.projects {
+          dev = { '~/personal', '~/work' },
+        }
       end,
       desc = '[S]earch [P]rojects',
     },
@@ -171,6 +202,13 @@ return {
         Snacks.scratch { icon = ' ', name = 'Todo', ft = 'markdown', file = '~/vaults/work/TODO.md' }
       end,
       desc = '[T]o[D]o List',
+    },
+    {
+      '<leader>su',
+      function()
+        Snacks.picker.undo()
+      end,
+      desc = 'Undo History',
     },
   },
 }

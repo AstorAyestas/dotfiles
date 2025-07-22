@@ -1,3 +1,30 @@
-theme = rose-pine-moon
-font-family = "Monaspace Argon"
-font-size = 16
+theme= tokyonight_night
+font-family = "Input"
+font-size = 18 
+term=xterm-256color
+
+# keybindings
+keybind = cmd+s>r=reload_config
+keybind = cmd+s>x=close_surface
+
+# new window
+keybind = cmd+s>n=new_window
+
+# tabs 
+keybind = cmd+s>c=new_tab
+keybind = cmd+s>shift+l=next_tab
+keybind = cmd+s>shift+h=previous_tab
+
+# split
+keybind = cmd+s>shift+\=new_split:right
+keybind = cmd+s>-=new_split:down
+
+# movements
+keybind = cmd+s>j=goto_split:bottom
+keybind = cmd+s>k=goto_split:top
+keybind = cmd+s>h=goto_split:left
+keybind = cmd+s>l=goto_split:right
+
+# zoom
+keybind = cmd+s>z=toggle_split_zoom
+

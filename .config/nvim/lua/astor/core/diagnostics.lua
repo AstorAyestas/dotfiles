@@ -4,7 +4,14 @@ vim.diagnostic.config {
   severity_sort = true,
   float = { border = 'rounded', source = 'if_many' },
   underline = { severity = vim.diagnostic.severity.ERROR },
-  signs = {},
+  signs = vim.g.have_nerd_font and {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '󰅚 ',
+      [vim.diagnostic.severity.WARN] = '󰀪 ',
+      [vim.diagnostic.severity.INFO] = '󰋽 ',
+      [vim.diagnostic.severity.HINT] = '󰌶 ',
+    },
+  } or {},
   virtual_text = {
     source = 'if_many',
     spacing = 2,
@@ -21,3 +28,8 @@ vim.diagnostic.config {
   -- Display multi line diagnostics as virtual lines
   -- virtual_lines = true,
 }
+
+-- Toggle to show/hide diagnostic messages
+vim.keymap.set('n', '<leader>tm', function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = '[T]oggle Diagnostics [M]essages' })

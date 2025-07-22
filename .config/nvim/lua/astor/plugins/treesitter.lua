@@ -7,11 +7,8 @@ return {
   opts = {
     ensure_installed = {
       'bash',
-      'c',
       'lua',
       'luadoc',
-      'vim',
-      'vimdoc',
       'markdown',
       'markdown_inline',
       'html',

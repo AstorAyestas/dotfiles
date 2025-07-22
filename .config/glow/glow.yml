@@ -1,8 +1,0 @@
-# style name or JSON path (default "auto")
-style: "~/.config/glow/themes/catppuccin-mocha.json"
-# mouse wheel support (TUI-mode only)
-mouse: true
-# use pager to display markdown
-pager: true
-# show all files, including hidden and ignored.
-all: false

@@ -65,3 +65,7 @@ eval "$(pyenv init -)"
 
 # Work
 [ -f "$HOME/.work.zsh" ] && source "$HOME/.work.zsh"
+
+# Personal
+[ -f "$HOME/.personal.zsh" ] && source "$HOME/.personal.zsh"
+

@@ -61,13 +61,30 @@ export GOROOT=$(brew --prefix go)/libexec
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
 
-# fzf theme rose pine
-export FZF_DEFAULT_OPTS="
-	--color=fg:#908caa,bg:#232136,hl:#ea9a97
-	--color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-	--color=border:#44415a,header:#3e8fb0,gutter:#232136
-	--color=spinner:#f6c177,info:#9ccfd8
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+# fzf theme tokyonight night
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none \
+  --color=bg+:#283457 \
+  --color=bg:#16161e \
+  --color=border:#27a1b9 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#27a1b9 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
+"
 
 # ripgrep config path
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
