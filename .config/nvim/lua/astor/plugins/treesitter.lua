@@ -18,6 +18,7 @@ return {
       'json',
       'dockerfile',
       'ruby',
+      'python',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,

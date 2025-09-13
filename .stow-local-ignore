@@ -4,3 +4,5 @@
 ^/README.*
 \.config/kanata/
 \.config/fabric/
+\.local/bin/python3.12
+\.python-version

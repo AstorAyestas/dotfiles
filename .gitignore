@@ -2,3 +2,5 @@
 .work.zsh
 .personal.zsh
 .tmux-work.conf
+.config/llm/logs.db
+.local/bin/python*

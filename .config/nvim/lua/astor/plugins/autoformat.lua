@@ -22,7 +22,7 @@ return {
       else
         return {
           timeout_ms = 500,
-          lsp_format = lsp_format_opt,
+          lsp_format = 'fallback',
         }
       end
     end,
@@ -40,6 +40,14 @@ return {
       css = { 'prettier' },
       html = { 'prettier' },
       json = { 'prettier' },
+      python = {
+        -- To fix auto-fixable lint errors.
+        'ruff_fix',
+        -- To run the Ruff formatter.
+        'ruff_format',
+        -- To organize the imports.
+        'ruff_organize_imports',
+      },
     },
   },
 }

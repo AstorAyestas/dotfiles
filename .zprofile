@@ -7,9 +7,9 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# needed for set up python version manager nvm
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# needed for set up python version manager uv
+export UV_TOOL_BIN_DIR="$HOME/.local/uv-tools/bin"
+export PATH="$HOME/.local/uv-tools/bin:$PATH"
 
 # needed for set up node version manager nvm
 export NVM_DIR="$HOME/.nvm"
@@ -90,3 +90,5 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 # npm global path
 export PATH=~/.npm-global/bin:$PATH
+# llm path
+export LLM_USER_PATH="$HOME/.config/llm"

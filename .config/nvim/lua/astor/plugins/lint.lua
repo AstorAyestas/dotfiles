@@ -10,6 +10,7 @@ return {
         typescript = { 'eslint_d' },
         javascriptreact = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
+        python = { 'ruff' },
       }
       -- Create auto command which carries out the actual linting
       -- on the specified events.

@@ -57,9 +57,6 @@ eval "$(fzf --zsh)"
 # rbenv
 eval "$(rbenv init -)"
 
-# pyenv
-eval "$(pyenv init -)"
-
 # Aliases
 [ -f "$HOME/.aliases.zsh" ] && source "$HOME/.aliases.zsh"
 

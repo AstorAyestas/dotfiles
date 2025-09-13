@@ -1,9 +1,10 @@
 return {
   -- Collection of various small independent plugins/modules
-  'echasnovski/mini.nvim',
+  'nvim-mini/mini.nvim',
   config = function()
     -- icons
     require('mini.icons').setup()
+    MiniIcons.mock_nvim_web_devicons()
 
     -- tabline
     -- require('mini.tabline').setup {

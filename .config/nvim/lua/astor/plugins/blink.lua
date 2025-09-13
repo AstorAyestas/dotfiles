@@ -44,12 +44,9 @@ return {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'buffer', 'lazydev', 'snippets' },
-      per_filetype = {
-        sql = { 'dadbod' },
-      },
+      per_filetype = {},
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
         snippets = {
           min_keyword_length = 1,
           score_offset = 1,
@@ -63,6 +60,7 @@ return {
     fuzzy = { implementation = 'prefer_rust_with_warning' },
     -- Shows a signature help window while you type arguments for a function
     signature = { enabled = true },
+    auto_brackets = { enabled = false },
   },
   opts_extend = { 'sources.default' },
 }
