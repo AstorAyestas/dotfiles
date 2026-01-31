@@ -92,3 +92,5 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 export PATH=~/.npm-global/bin:$PATH
 # llm path
 export LLM_USER_PATH="$HOME/.config/llm"
+# opencode plan mode
+export OPENCODE_EXPERIMENTAL_PLAN_MODE=0

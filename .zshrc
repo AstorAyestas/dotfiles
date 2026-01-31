@@ -48,6 +48,24 @@ setopt hist_find_no_dups
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
+# Press Ctrl+X followed by Ctrl+E to trigger
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
+# -------------------------------------------
+# chpwd Hook - Run Commands on Directory Change
+# -------------------------------------------
+# NOTE: Only one chpwd hook can be defined at once
+#
+
+# Auto-use correct Node version with nvm
+chpwd() {
+  if [[ -f .nvmrc ]]; then
+    nvm use
+  fi
+}
+
 # setup ssh-key to use the keychain
 zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
 

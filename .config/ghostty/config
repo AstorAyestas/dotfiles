@@ -1,4 +1,13 @@
-theme= tokyonight_night
+# color theme
+theme = /Applications/Ghostty.app/Contents/Resources/ghostty/themes/TokyoNight Night
+
+# quick terminal
+quick-terminal-size = 0%
+
+# auto update ghostty@tip
+auto-update-channel = tip
+
+# font
 font-family = "Input"
 font-size = 18 
 term=xterm-256color

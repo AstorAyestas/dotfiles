@@ -76,6 +76,10 @@ return {
           Snacks.picker.lsp_definitions()
         end, '[G]oto [D]efinition')
 
+        -- Execute a code action, usually your cursor needs to be on top of an error
+        -- or a suggestion from your LSP for this to activate.
+        map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+
         -- Find references for the word under your cursor.
         map('grr', function()
           Snacks.picker.lsp_references()
@@ -152,6 +156,8 @@ return {
     ---@class LspServersConfig
     local servers = {
       vtsls = {},
+      -- tsgo = {},
+      astro = {},
       html = {},
       cssls = {},
       tailwindcss = {
@@ -160,6 +166,7 @@ return {
       dockerls = {},
       docker_compose_language_service = {},
       jsonls = {},
+      -- copilot = {},
       -- ruby_lsp = {
       --   init_options = {
       --     formatter = 'standard',

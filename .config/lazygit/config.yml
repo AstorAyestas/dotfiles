@@ -4,4 +4,4 @@ customCommands:
     description: "Git Conventional Commits"
     context: "files"
     loadingText: "Open the script gcm"
-    subprocess: true
+    output: terminal

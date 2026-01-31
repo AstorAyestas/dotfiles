@@ -4,3 +4,4 @@
 .tmux-work.conf
 .config/llm/logs.db
 .local/bin/python*
+.ssh/config.private
