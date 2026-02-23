@@ -6,3 +6,4 @@
 \.config/fabric/
 \.local/bin/python3.12
 \.python-version
+\.config/nvim-backup

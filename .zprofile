@@ -86,6 +86,9 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color=spinner:#ff007c \
 "
 
+# setup bob nvim
+source "/Users/astorayestas/.local/share/bob/env/env.sh"
+
 # ripgrep config path
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 # npm global path
@@ -94,3 +97,9 @@ export PATH=~/.npm-global/bin:$PATH
 export LLM_USER_PATH="$HOME/.config/llm"
 # opencode plan mode
 export OPENCODE_EXPERIMENTAL_PLAN_MODE=0
+
+export PATH="/opt/homebrew/opt/ffmpeg@7/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/ffmpeg@7/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ffmpeg@7/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ffmpeg@7/lib/pkgconfig"
+

@@ -73,7 +73,7 @@ zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
 eval "$(fzf --zsh)"
 
 # rbenv
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 # Aliases
 [ -f "$HOME/.aliases.zsh" ] && source "$HOME/.aliases.zsh"

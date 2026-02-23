@@ -5,3 +5,7 @@
 .config/llm/logs.db
 .local/bin/python*
 .ssh/config.private
+.config/nvim-backup
+.claude
+.gemini
+.config/opencode
