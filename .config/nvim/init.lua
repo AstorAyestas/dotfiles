@@ -1,3 +1,4 @@
-require 'astor.core'
-require 'astor.lazy'
-require 'astor.utils'
+require 'config'
+require 'core'
+require 'plugins'
+require 'extra'
